@@ -12,6 +12,19 @@
 # install.packages(c("caret", "ggplot2", "dplyr", "corrplot", "randomForest", 
 #                    "gbm", "e1071", "ipred", "tidyr"))
 
+# Paths are relative to the folder that contains this script, so it runs from
+# wherever the repository was downloaded. The dataset is read from data/.
+local({
+  dir <- tryCatch(dirname(normalizePath(sys.frame(1)$ofile)), error = function(e) NULL)
+  if (is.null(dir)) {
+    arg <- grep("^--file=", commandArgs(trailingOnly = FALSE), value = TRUE)
+    if (length(arg)) dir <- dirname(normalizePath(sub("^--file=", "", arg[1])))
+  }
+  if (is.null(dir) && requireNamespace("rstudioapi", quietly = TRUE) && rstudioapi::isAvailable())
+    dir <- dirname(rstudioapi::getActiveDocumentContext()$path)
+  if (!is.null(dir) && nzchar(dir)) setwd(dir)
+})
+
 # Carregamento de pacotes
 library(caret)
 library(ggplot2)

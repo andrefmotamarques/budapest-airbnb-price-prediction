@@ -35,15 +35,20 @@ The modest R² reflects the data more than the models: the listings have no size
 
 ```
 airbnb_price_models.R   # full pipeline: cleaning, EDA, models, evaluation
-report.pdf              # full written report (Portuguese)
-data/                   # place listings_Budapest.csv here (not included)
+install_packages.R      # installs the R packages used
+data/                   # listings_Budapest.csv (not included yet)
+report_en.pdf           # full written report (English)
+report_pt.pdf           # original report (Portuguese)
 ```
 
 ## How to run
 
-1. Put `listings_Budapest.csv` in `data/`.
-2. Install the packages: `caret ggplot2 dplyr corrplot randomForest gbm e1071 ipred tidyr doParallel tidyverse`.
-3. Run `airbnb_price_models.R` from the repository root.
+```r
+source("install_packages.R")
+source("airbnb_price_models.R")
+```
+
+The script moves to its own folder before reading `data/listings_Budapest.csv`, so it works from RStudio, `Rscript` or `source()` wherever the repository was downloaded.
 
 ## Tech stack
 
@@ -51,4 +56,4 @@ R · caret · randomForest · gbm · ipred · tidyverse · ggplot2
 
 ## Team
 
-André Marques, Afonso Abreu and Afonso Claudino. The full report with the team's methodology and discussion is in [`report.pdf`](report.pdf) (Portuguese).
+André Marques, Afonso Abreu and Afonso Claudino. The full report with the team's methodology and discussion is in [`report_en.pdf`](report_en.pdf) (English) and [`report_pt.pdf`](report_pt.pdf) (original, Portuguese).
