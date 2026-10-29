@@ -8,6 +8,8 @@ Team project for the *Forecasting Models* course, MSc in Data Science, ISCTE (20
 
 `listings_Budapest.csv`, a public Airbnb listings snapshot for Budapest in the Inside Airbnb format (neighbourhood, coordinates, room type, minimum nights, availability, reviews). Prices were converted from HUF to EUR.
 
+**Data availability:** the original snapshot used in this project is no longer available to me, so it is not included in the repository. The code, the report and the results above are kept as a record of the work. To re-run the pipeline, download a current Budapest `listings.csv` from [Inside Airbnb](https://insideairbnb.com/get-the-data/), save it as `data/listings_Budapest.csv` and run the script. Because the listings change over time, the numbers will differ from those reported here.
+
 ## Method
 
 - **Feature engineering:** `days_since_last_review` derived from the last review date, irrelevant identifiers and free text dropped.
@@ -36,7 +38,7 @@ The modest R² reflects the data more than the models: the listings have no size
 ```
 airbnb_price_models.R   # full pipeline: cleaning, EDA, models, evaluation
 install_packages.R      # installs the R packages used
-data/                   # listings_Budapest.csv (not included yet)
+data/                   # place listings_Budapest.csv here (see Data availability)
 report_en.pdf           # full written report (English)
 report_pt.pdf           # original report (Portuguese)
 ```
@@ -48,7 +50,7 @@ source("install_packages.R")
 source("airbnb_price_models.R")
 ```
 
-The script moves to its own folder before reading `data/listings_Budapest.csv`, so it works from RStudio, `Rscript` or `source()` wherever the repository was downloaded.
+The script moves to its own folder before reading `data/listings_Budapest.csv` (see *Data availability* above), so it works from RStudio, `Rscript` or `source()` wherever the repository was downloaded.
 
 ## Tech stack
 
